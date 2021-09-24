@@ -17,6 +17,7 @@ function jeu() {
 	contexte.strokeStyle = "black";
 	contexte.fillRect(x, y, largeur, hauteur);
 	contexte.strokeRect(x + 1, y + 1, largeur - 1, hauteur - 1);
+	contexte.clearRect(x - 75, y, largeur, hauteur);
 }
 
 function clavier(action) {
