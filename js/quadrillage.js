@@ -8,7 +8,7 @@ pinceau.lineTo(c1.width, 50);
 pinceau.stroke(); */
 
 
-var ctx = document.getElementById('zone').getContext('2d');
+var ctx = document.getElementById('canvas').getContext('2d');
 
 for (var i = 0; i < 6; i++) {
   for (var j = 0; j < 6; j++) {

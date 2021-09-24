@@ -27,7 +27,7 @@ h1 {
 	animation: color-change 3s infinite;
 }
 
-canvas {
+#canvas {
     padding-left: 0;
     padding-right: 0;
     margin-left: auto;
