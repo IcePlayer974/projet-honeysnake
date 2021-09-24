@@ -3,6 +3,14 @@
 	src: url("../fonts/LibreFranklin-SemiBold.ttf") format("truetype");
 }
 
+@keyframes color-change {
+	0% { color: #ffff00; }
+	25% { color: #ffd700; }
+	50% { color: #77dd77; }
+	75% { color: #34c924; }
+	100% { color: #ffff00; }
+}
+
 html {
 	margin: 0;
 	padding: 0;
@@ -16,6 +24,7 @@ h1 {
 	color: white;
 	text-align: center;
 	text-shadow: 0px 0px 6px;
+	animation: color-change 3s infinite;
 }
 
 canvas {
