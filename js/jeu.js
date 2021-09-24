@@ -1,6 +1,6 @@
 var canvas = document.getElementById('canvas'); // on récupère le canvas d'id zone dans html
 var contexte = canvas.getContext('2d'); // c'est expliqué là Julien : https://developer.mozilla.org/fr/docs/Web/API/Canvas_API/Tutorial/Basic_usage
-var largeur = hauteur = 25;
+var largeur = hauteur = 24;
 var x = Math.trunc(canvas.width / 2);
 var y = Math.trunc(canvas.height / 2);
 
