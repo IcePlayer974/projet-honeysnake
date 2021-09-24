@@ -1,8 +1,21 @@
+@font-face {
+	font-family: "Libre Franklin";
+	src: url("../fonts/LibreFranklin-SemiBold.ttf") format("truetype");
+}
+
 html {
 	margin: 0;
 	padding: 0;
 	background: url(../img/fond.webp);
 	background-size: cover;
+	font-family: "Libre Franklin";
+}
+
+h1 {
+	-webkit-text-stroke: 1.5px black;
+	color: white;
+	text-align: center;
+	text-shadow: 0px 0px 6px;
 }
 
 canvas {
