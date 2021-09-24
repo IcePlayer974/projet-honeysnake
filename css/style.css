@@ -1,5 +1,5 @@
 html {
-	margin: 0;
+	#global {margin: 0 auto;}
 	padding: 0;
 	background: url(img/fond.webp);
 	background-size: cover;
