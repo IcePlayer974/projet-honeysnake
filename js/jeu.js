@@ -12,7 +12,8 @@ window.onload=function() {
 
 function jeu() {
 	// le plus gros du taff mdr
-	contexte.fillStyle="f1c40f";
+	x++;
+	contexte.fillStyle="green";
 	contexte.fillRect(x, y, largeur, hauteur);
 }
 
