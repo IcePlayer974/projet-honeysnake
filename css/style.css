@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 @font-face {
 	font-family: "Libre Franklin";
 	src: url("../fonts/LibreFranklin-SemiBold.ttf") format("truetype");
@@ -25,6 +27,7 @@ h1 {
 	text-align: center;
 	text-shadow: 0px 0px 6px;
 	animation: color-change 3s infinite;
+	font-size: 48px;
 }
 
 #canvas {
