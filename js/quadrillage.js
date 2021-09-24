@@ -13,7 +13,7 @@ var ctx = canvas.getContext('2d');
 
 for (var i = 0; i < 600; i++) {
 	ctx.strokeStyle = 'blue'; 
-	ctx.strokeRect(0,i*25, 625, 0); // ligne honrizontal : cote 1= decalage sur x/ la 2 sur y / la 3 taille du trace sur x / idem sur y
+	ctx.strokeRect(0,i*25, 600, 0); // ligne honrizontal : cote 1= decalage sur x/ la 2 sur y / la 3 taille du trace sur x / idem sur y
 	ctx.strokeStyle = '#000000';
-	ctx.strokeRect(i*25,0,0, 625); // ligne vertical 
+	ctx.strokeRect(i*25,0,0, 600); // ligne vertical 
 }
