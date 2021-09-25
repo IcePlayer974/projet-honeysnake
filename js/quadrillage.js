@@ -1,13 +1,3 @@
-/* var c1=doculent.getElementById("zone")
-ci.strokeStyle = 'rgb
-var pinceau=c1;getContext("2d);
-
-ci.strokeStyle = 'blue';
-pinceau.moveTo(0,50);
-pinceau.lineTo(c1.width, 50);
-pinceau.stroke(); */
-
-
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
 
@@ -17,3 +7,8 @@ for (var i = 0; i < 600; i++) { // on a donc 24*24 case de 25pix
 	ctx.strokeStyle = 'black';
 	ctx.strokeRect(i*25,0,0, 600); // ligne vertical 
 }
+
+
+/* Peut etre le faire en mode tableau genre
+on a un tableau et quand on fait les different move sa fait case du tableau +1 / -1 / +1 ligne / -1 ligne ??jsp dit moi arthur
+et tkt prochaine scance soit je t'aide sur le font soit je bosse la forme */ 
