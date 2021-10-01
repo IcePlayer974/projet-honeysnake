@@ -3,8 +3,10 @@ var contexte = canvas.getContext('2d'); // c'est expliqué là Julien : https://
 var largeur = hauteur = 25;
 var x = Math.trunc(canvas.height / 2);
 var y = Math.trunc(canvas.width / 2);
-
-var depX=depY=0;
+var depX = depY = 0;
+var trace = [];
+var tailleTrace = tailleInitTrace = 10;
+var i;
 
 // ça charge ce bout de code uniquement quand la page a entièrement chargé
 window.onload=function() {
@@ -14,42 +16,41 @@ window.onload=function() {
 
 function jeu() {
 	// le plus gros du taff mdr
-	x +=depX;
-	y +=depY;
-	contexte.clearRect(0, 0, canvas.width, canvas.height);
+	x += depX;
+	y += depY;
+	trace.push({x:x, y:y}); // on met x et y dans le tableau
+	while (trace.length>tailleTrace) { // tant que le tableau (la trace) dépasse la taille max
+		// on en enlève un
+		trace.shift();
+	}
+	contexte.clearRect(0, 0, canvas.width, canvas.height); // clear le canvas avant de rafficher le serpent ayant avancé
 	contexte.fillStyle = "green";
-	contexte.fillRect(x, y, largeur, hauteur);
+	for (i = 0; i < trace.length; i++) {
+		contexte.fillRect(trace[i].x, trace[i].y, largeur, hauteur);
+	}
 }
 
 function clavier(action) {
 	switch(action.keyCode) {
 	case 37: // à faire - tourner à gauche
-	if(hist==39){break;}
-	depX=-25;
-	depY=0;
-	hist=action.keyCode;
+	depX = -25;
+	depY = 0;
 	break;
 	case 38: // à faire - monter
-	if(hist==40){break;}
-	depX=0
-	depY=-25
-	hist=action.keyCode;
+	depX = 0;
+	depY = -25;
 	break;
 	case 39: // à faire - tourner à droite
-	if(hist==37){break;}
-	depX=25
-	depY=0
-	hist=action.keyCode;
+	depX = 25;
+	depY = 0;
 	break;
 	case 40: // à faire - descendre
-	if(hist==38){break;}
-	depX=0
-	depY=25
-	hist=action.keyCode;
+	depX = 0;
+	depY = 25;
 	break;
 	case 32: // à faire - espace
-	depX=0
-	depY=0
+	depX = 0;
+	depY = 0;
 	break;
 	}
 }
