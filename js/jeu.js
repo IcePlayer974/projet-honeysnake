@@ -4,6 +4,8 @@ var largeur = hauteur = 25;
 var x = Math.trunc(canvas.height / 2);
 var y = Math.trunc(canvas.width / 2);
 
+var depX=depY=0;
+
 // ça charge ce bout de code uniquement quand la page a entièrement chargé
 window.onload=function() {
 	var interval = setInterval(jeu, 500); // vérification toutes les 500ms
@@ -12,7 +14,8 @@ window.onload=function() {
 
 function jeu() {
 	// le plus gros du taff mdr
-	x += 25;
+	x +=depX;
+	y +=depY;
 	contexte.clearRect(0, 0, canvas.width, canvas.height);
 	contexte.fillStyle = "green";
 	contexte.fillRect(x, y, largeur, hauteur);
@@ -21,14 +24,24 @@ function jeu() {
 function clavier(action) {
 	switch(action.keyCode) {
 	case 37: // à faire - tourner à gauche
+	depX=-25;
+	depY=0;
 	break;
 	case 38: // à faire - monter
+	depX=0
+	depY=-25
 	break;
 	case 39: // à faire - tourner à droite
+	depX=25
+	depY=0
 	break;
 	case 40: // à faire - descendre
+	depX=0
+	depY=25
 	break;
 	case 32: // à faire - espace
+	depX=0
+	depY=0
 	break;
 	}
 }
