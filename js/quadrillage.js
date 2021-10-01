@@ -11,4 +11,4 @@ for (var i = 0; i < 600; i++) { // on a donc 24*24 case de 25pix
 
 /* Peut etre le faire en mode tableau genre
 on a un tableau et quand on fait les different move sa fait case du tableau +1 / -1 / +1 ligne / -1 ligne ??jsp dit moi arthur
-et tkt prochaine scance soit je t'aide sur le font soit je bosse la forme */ 
+et tkt prochaine scance soit je t'aide sur le font soit je bosse la forme  */
