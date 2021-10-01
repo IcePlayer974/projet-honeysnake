@@ -24,20 +24,28 @@ function jeu() {
 function clavier(action) {
 	switch(action.keyCode) {
 	case 37: // à faire - tourner à gauche
+	if(hist==39){break;}
 	depX=-25;
 	depY=0;
+	hist=action.keyCode;
 	break;
 	case 38: // à faire - monter
+	if(hist==40){break;}
 	depX=0
 	depY=-25
+	hist=action.keyCode;
 	break;
 	case 39: // à faire - tourner à droite
+	if(hist==37){break;}
 	depX=25
 	depY=0
+	hist=action.keyCode;
 	break;
 	case 40: // à faire - descendre
+	if(hist==38){break;}
 	depX=0
 	depY=25
+	hist=action.keyCode;
 	break;
 	case 32: // à faire - espace
 	depX=0
