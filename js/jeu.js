@@ -6,16 +6,18 @@ var y = Math.trunc(canvas.width / 2);
 
 // ça charge ce bout de code uniquement quand la page a entièrement chargé
 window.onload=function() {
-	var interval = setInterval(jeu, 750); // boucle toutes les 750ms
+	var interval = setInterval(jeu, 1000); // vérification toutes les 20ms
 	document.addEventListener("keydown", clavier); // on écoute les events du clavier
 }
 
 function jeu() {
 	// le plus gros du taff mdr
 	x += 25;
-	contexte.clearRect(0, 0, canvas.width, canvas.height);
 	contexte.fillStyle = "green";
+	contexte.strokeStyle = "black";
 	contexte.fillRect(x, y, largeur, hauteur);
+	contexte.strokeRect(x + 1, y + 1, largeur - 1, hauteur - 1);
+	/* contexte.clearRect(x - 75, y, largeur, hauteur); */
 }
 
 function clavier(action) {
