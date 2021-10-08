@@ -3,12 +3,12 @@ canvas.width = (document.body.clientWidth) / 2;
 canvas.height = document.body.clientHeight;
 var context = canvas.getContext('2d');
 
-var grid = 32;
+var grid = 25;
 var count = 0;
   
 var snake = {
-  x: 320,
-  y: 320,
+  x: 275,
+  y: 275,
   
   // Déplacements du serpent, bouge d'une case dans la direction X ou Y
   dx: grid,
@@ -21,8 +21,8 @@ var snake = {
   maxCells: 4
 };
 var apple = {
-  x: 640,
-  y: 640
+  x: 425,
+  y: 425,
 };
 
 // get random whole numbers in a specific range
