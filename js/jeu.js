@@ -8,14 +8,14 @@ var snake = {
   x: 320,
   y: 320,
   
-  // snake velocity. moves one grid length every frame in either the x or y direction
+  // Déplacements du serpent, bouge d'une case dans la direction X ou Y
   dx: grid,
   dy: 0,
   
-  // keep track of all grids the snake body occupies
+  // Garder une trace de toutes les cases occupées par le serpent
   cells: [],
   
-  // length of the snake. grows when eating an apple
+  // Queue du serpent, qui grandit après chaque pomme
   maxCells: 4
 };
 var apple = {
