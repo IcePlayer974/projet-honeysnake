@@ -1,4 +1,6 @@
 var canvas = document.getElementById('canvas');
+canvas.width = (document.body.clientWidth) / 2;
+canvas.height = document.body.clientHeight;
 var context = canvas.getContext('2d');
 
 var grid = 32;
