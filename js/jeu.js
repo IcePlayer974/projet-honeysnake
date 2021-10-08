@@ -1,14 +1,13 @@
 var canvas = document.getElementById('canvas');
-canvas.width = (document.body.clientWidth) / 2;
-canvas.height = document.body.clientHeight;
+canvas.width = canvas.height = document.body.clientHeight;
 var context = canvas.getContext('2d');
 
-var grid = 25;
+var grid = canvas.width * 0.04;
 var count = 0;
   
 var snake = {
-  x: 275,
-  y: 275,
+  x: canvas.width * 0.4,
+  y: canvas.height * 0.4,
   
   // Déplacements du serpent, bouge d'une case dans la direction X ou Y
   dx: grid,
@@ -18,11 +17,11 @@ var snake = {
   cells: [],
   
   // Queue du serpent, qui grandit après chaque pomme
-  maxCells: 4
+  maxCells: canvas.width / 100
 };
 var apple = {
-  x: 425,
-  y: 425,
+  x: canvas.width * 0.8,
+  y: canvas.width * 0.8,
 };
 
 // get random whole numbers in a specific range
