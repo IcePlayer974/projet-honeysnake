@@ -50,3 +50,7 @@ canvas {
 .memeligne {
 	display: inline-block;
 }
+
+#scorehtml {
+	font-size: 40px;
+}
