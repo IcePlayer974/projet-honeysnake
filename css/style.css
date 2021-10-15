@@ -32,6 +32,13 @@ h1 {
 	font-size: 60px;
 }
 
+#starter {
+    background: #FFFFFF00;
+    color: #ffffff;
+    font-size: 15px;
+
+}
+
 canvas {
 	border: 1px solid white;
     padding-left: 0;
