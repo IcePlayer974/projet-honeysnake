@@ -34,6 +34,16 @@ function resetScore() {
 	document.getElementById('scorehtml').innerHTML = score;
 }
 
+function gameover() {
+	document.getElementById("gameover").cloneNode(true).play();
+	alerteGameover();
+}
+
+function alerteGameover() {
+	alert("GAME OVER\nVous avez tout votre temps pour battre le record du monde !");
+	document.location.reload();
+}
+
 // get random whole numbers in a specific range
 // @see https://stackoverflow.com/a/1527820/2124254
 function getRandomInt(min, max) {
@@ -114,6 +124,7 @@ function loop() {
         snake.dx = grid;
         snake.dy = 0;
 		resetScore();
+		gameover();
 
         apple.x = getRandomInt(0, 25) * grid;
         apple.y = getRandomInt(0, 25) * grid;
