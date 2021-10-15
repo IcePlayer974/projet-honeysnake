@@ -133,34 +133,42 @@ function loop() {
   });
 }
 
-// listen to keyboard events to move the snake
+// Ecoute des événements claviers (pour les flèches)
 document.addEventListener('keydown', function(e) {
   // prevent snake from backtracking on itself by checking that it's 
   // not already moving on the same axis (pressing left while moving
   // left won't do anything, and pressing right while moving left
   // shouldn't let you collide with your own body)
   
-  // left arrow key
+  /*
+	On fait en sorte que le navigateur ne scroll pas
+	la page quand on utilise les touches haut et bas.
+	Jouer en ayant une page qui scroll toute seule,
+	c'est pas fun.
+  */
+  e.preventDefault();
+  
+  // Flèche gauche
   if (e.which === 37 && snake.dx === 0) {
     snake.dx = -grid;
     snake.dy = 0;
   }
-  // up arrow key
+  // Flèche haut
   else if (e.which === 38 && snake.dy === 0) {
     snake.dy = -grid;
     snake.dx = 0;
   }
-  // right arrow key
+  // Flèche droite
   else if (e.which === 39 && snake.dx === 0) {
     snake.dx = grid;
     snake.dy = 0;
   }
-  // down arrow key
+  // Flèche bas
   else if (e.which === 40 && snake.dy === 0) {
     snake.dy = grid;
     snake.dx = 0;
   }
 });
 
-// start the game
+// Démarrage du jeu
 requestAnimationFrame(loop);
