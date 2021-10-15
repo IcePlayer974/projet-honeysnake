@@ -28,8 +28,8 @@ h1 {
 	color: white;
 	text-align: center;
 	text-shadow: 0px 0px 4px white;
-	animation: color-change 3s infinite;
-	font-size: 48px;
+	animation: color-change 4s infinite;
+	font-size: 60px;
 }
 
 canvas {
@@ -39,4 +39,14 @@ canvas {
     margin-left: auto;
     margin-right: auto;
     display: block;
+}
+
+.scoreentier {
+	text-align: center;
+	color: #ffffff;
+	font-size: 30px;
+}
+
+.memeligne {
+	display: inline-block;
 }

@@ -1,6 +1,6 @@
 var canvas = document.getElementById('jeu');
 var context = canvas.getContext('2d');
-
+var score = 0;
 var grid = 16;
 var count = 0;
   
@@ -22,6 +22,17 @@ var apple = {
   x: 320,
   y: 320
 };
+
+// suivre le score du joueur
+function scoreJoueur() {
+	score++;
+	document.getElementById('scorehtml').innerHTML = score;
+}
+
+function resetScore() {
+	score = 0;
+	document.getElementById('scorehtml').innerHTML = score;
+}
 
 // get random whole numbers in a specific range
 // @see https://stackoverflow.com/a/1527820/2124254
@@ -83,6 +94,8 @@ function loop() {
     // snake ate apple
     if (cell.x === apple.x && cell.y === apple.y) {
       snake.maxCells++;
+	  document.getElementById("bouteille").cloneNode(true).play();
+	  scoreJoueur();
 
       // canvas is 400x400 which is 25x25 grids 
       apple.x = getRandomInt(0, 25) * grid;
@@ -100,6 +113,7 @@ function loop() {
         snake.maxCells = 4;
         snake.dx = grid;
         snake.dy = 0;
+		resetScore();
 
         apple.x = getRandomInt(0, 25) * grid;
         apple.y = getRandomInt(0, 25) * grid;
