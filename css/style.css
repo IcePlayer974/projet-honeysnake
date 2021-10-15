@@ -6,11 +6,13 @@
 }
 
 @keyframes color-change {
-	0% { color: #ffff00; }
-	25% { color: #ffd700; }
-	50% { color: #77dd77; }
-	75% { color: #34c924; }
-	100% { color: #ffff00; }
+	0% { color: #ff0000; }
+	17% { color: #ff4000; }
+	33% { color: #ff8000; }
+	50% { color: #ffbf00; }
+	66% { color: #ffff00; }
+	83% { color: #bfff00; }
+	100% { color: #ff0000; }
 }
 
 html {
@@ -25,12 +27,13 @@ h1 {
 	-webkit-text-stroke: 1.5px black;
 	color: white;
 	text-align: center;
-	text-shadow: 0px 0px 6px;
+	text-shadow: 0px 0px 4px white;
 	animation: color-change 3s infinite;
 	font-size: 48px;
 }
 
-#canvas {
+canvas {
+	border: 1px solid white;
     padding-left: 0;
     padding-right: 0;
     margin-left: auto;

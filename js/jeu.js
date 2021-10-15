@@ -1,27 +1,26 @@
-var canvas = document.getElementById('canvas');
-canvas.width = canvas.height = document.body.clientHeight;
+var canvas = document.getElementById('jeu');
 var context = canvas.getContext('2d');
 
-var grid = canvas.width * 0.04;
+var grid = 16;
 var count = 0;
   
 var snake = {
-  x: canvas.width * 0.4,
-  y: canvas.height * 0.4,
+  x: 160,
+  y: 160,
   
-  // Déplacements du serpent, bouge d'une case dans la direction X ou Y
+  // snake velocity. moves one grid length every frame in either the x or y direction
   dx: grid,
   dy: 0,
   
-  // Garder une trace de toutes les cases occupées par le serpent
+  // keep track of all grids the snake body occupies
   cells: [],
   
-  // Queue du serpent, qui grandit après chaque pomme
-  maxCells: canvas.width / 100
+  // length of the snake. grows when eating an apple
+  maxCells: 4
 };
 var apple = {
-  x: canvas.width * 0.8,
-  y: canvas.width * 0.8,
+  x: 320,
+  y: 320
 };
 
 // get random whole numbers in a specific range
@@ -35,7 +34,7 @@ function loop() {
   requestAnimationFrame(loop);
 
   // slow game loop to 15 fps instead of 60 (60/15 = 4)
-  if (++count < 8) {
+  if (++count < 4) {
     return;
   }
 
@@ -88,7 +87,6 @@ function loop() {
       // canvas is 400x400 which is 25x25 grids 
       apple.x = getRandomInt(0, 25) * grid;
       apple.y = getRandomInt(0, 25) * grid;
-	  document.getElementById("bouteille").play();
     }
 
     // check collision with all cells after this one (modified bubble sort)
@@ -96,8 +94,8 @@ function loop() {
       
       // snake occupies same space as a body part. reset game
       if (cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
-        snake.x = 320;
-        snake.y = 320;
+        snake.x = 160;
+        snake.y = 160;
         snake.cells = [];
         snake.maxCells = 4;
         snake.dx = grid;
