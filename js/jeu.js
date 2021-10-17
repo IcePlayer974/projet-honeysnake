@@ -135,10 +135,6 @@ function loop() {
 
 // Ecoute des événements claviers (pour les flèches)
 document.addEventListener('keydown', function(e) {
-  // prevent snake from backtracking on itself by checking that it's 
-  // not already moving on the same axis (pressing left while moving
-  // left won't do anything, and pressing right while moving left
-  // shouldn't let you collide with your own body)
   
   /*
 	On fait en sorte que le navigateur ne scroll pas
@@ -148,6 +144,7 @@ document.addEventListener('keydown', function(e) {
   */
   e.preventDefault();
   
+  // Eviter que le serpent puisse faire demi-tour sur lui-même
   // Flèche gauche
   if (e.which === 37 && snake.dx === 0) {
     snake.dx = -grid;
