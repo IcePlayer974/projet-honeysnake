@@ -1,6 +1,6 @@
 var canvas = document.getElementById("jeu");
 var context = canvas.getContext("2d");
-var jack = document.getElementById("");
+var jack = document.getElementById("jack");
 var score = 0;
 var grid = 16;
 var count = 0;
@@ -93,8 +93,11 @@ function loop() {
   }
 
   // draw apple
+  /*
   context.fillStyle = "red";
   context.fillRect(apple.x, apple.y, grid-1, grid-1);
+  */
+  context.drawImage(jack, apple.x, apple.y, grid - 1, (2 * grid) - 1);
 
   // draw snake one cell at a time
   context.fillStyle = "green";
@@ -103,8 +106,9 @@ function loop() {
     // drawing 1 px smaller than the grid creates a grid effect in the snake body so you can see how long it is
     context.fillRect(cell.x, cell.y, grid-1, grid-1);  
 
-    // snake ate apple
-    if (cell.x === apple.x && cell.y === apple.y) {
+    // snake sur jack
+    
+	if (cell.x === apple.x && cell.y === apple.y) {
       snake.maxCells++;
 	  document.getElementById("bouteille").cloneNode(true).play();
 	  scoreJoueur();
