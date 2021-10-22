@@ -57,3 +57,52 @@ h1 {
 	position: relative;
 	top: 1px;
 }
+
+.occa {
+	box-shadow: 3px 4px 0px 0px #fff6af;
+	background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+	background-color:#ffec64;
+	border-radius:18px;
+	border:1px solid #ffaa22;
+	display:inline-block;
+	cursor:pointer;
+	color:#333333;
+	font-family:Trebuchet MS;
+	font-size:17px;
+	padding:7px 25px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffee66;
+}
+.occa:hover {
+	background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+	background-color:#ffab23;
+}
+.occa:active {
+	position:relative;
+	top:1px;
+}
+
+.ivrogne {
+	box-shadow: 3px 4px 0px 0px #8a2a21;
+	background:linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
+	background-color:#c62d1f;
+	border-radius:18px;
+	border:1px solid #d02718;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Trebuchet MS;
+	font-size:19px;
+	font-weight:bold;
+	padding:9px 27px;
+	text-decoration:none;
+	text-shadow:8px 8px 3px #810e05;
+}
+.ivrogne:hover {
+	background:linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
+	background-color:#f24437;
+}
+.ivrogne:active {
+	position:relative;
+	top:1px;
+}
