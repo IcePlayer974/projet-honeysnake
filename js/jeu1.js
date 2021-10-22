@@ -107,8 +107,7 @@ function loop() {
     context.fillRect(cell.x, cell.y, grid-1, grid-1);  
 
     // snake sur jack
-    
-	if (cell.x === apple.x && cell.y === apple.y) {
+	if ((cell.x === apple.x) && ((cell.y === apple.y) || (cell.y === apple.y + grid))) {
       snake.maxCells++;
 	  document.getElementById("bouteille").cloneNode(true).play();
 	  scoreJoueur();
