@@ -1,4 +1,4 @@
-.var canvas = document.getElementById('jeu');
+var canvas = document.getElementById('jeu');
 var context = canvas.getContext('2d');
 var score = 0;
 var grid = 16;
@@ -170,3 +170,14 @@ document.addEventListener('keydown', function(e) {
 
 // Démarrage du jeu
 requestAnimationFrame(loop);
+
+
+
+
+let btl = document.getElementById('btl');
+let ctx = canvas.getContext('2d');
+let image = document.getElementById('jack');
+
+image.addEventListener('load', function(){
+    ctx.drawImage(image, 75, 25, 150, 100);
+}, false);
