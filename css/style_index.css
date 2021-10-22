@@ -1,0 +1,58 @@
+@charset "utf-8";
+
+@font-face {
+	font-family: "Libre Franklin";
+	src: url("../fonts/LibreFranklin-SemiBold.ttf") format("truetype");
+}
+
+@keyframes color-change {
+	0% { color: #ff0000; }
+	17% { color: #ff4000; }
+	33% { color: #ff8000; }
+	50% { color: #ffbf00; }
+	66% { color: #ffff00; }
+	83% { color: #bfff00; }
+	100% { color: #ff0000; }
+}
+
+html {
+	margin: auto;
+	padding: 0;
+	background: url(../img/fond.webp);
+	background-size: cover;
+	font-family: "Libre Franklin";
+}
+
+h1 {
+	-webkit-text-stroke: 1.5px black;
+	color: white;
+	text-align: center;
+	text-shadow: 0px 0px 4px white;
+	animation: color-change 4s infinite;
+	font-size: 60px;
+}
+
+.amateur {
+	box-shadow: 3px 4px 0px 0px #3dc21b;
+	background: linear-gradient(to bottom, #44c767 5%, #5cbf2a 100%);
+	background-color: #44c767;
+	border-radius: 18px;
+	border: 1px solid #18ab29;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	font-family: Trebuchet MS;
+	font-size: 17px;
+	padding: 7px 25px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #2f6627;
+	
+}
+.amateur:hover {
+	background: linear-gradient(to bottom, #5cbf2a 5%, #44c767 100%);
+	background-color: #5cbf2a;
+}
+.amateur:active {
+	position: relative;
+	top: 1px;
+}
