@@ -1,8 +1,5 @@
-var canvas = document.getElementById('jeu');
+.var canvas = document.getElementById('jeu');
 var context = canvas.getContext('2d');
-var btl = document.getElementById("btl");
-var ctx = btl.getContext("2d");
-var alcool = document.getElementById("jack");
 var score = 0;
 var grid = 16;
 var count = 0;
@@ -95,7 +92,7 @@ function loop() {
   }
 
   // draw apple
-  ctx.drawImage(alcool, 33, 71, 104, 124, 21, 20, 87, 104);
+  context.fillStyle = 'red';
   context.fillRect(apple.x, apple.y, grid-1, grid-1);
 
   // draw snake one cell at a time
