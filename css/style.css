@@ -31,20 +31,6 @@ h1 {
 	animation: color-change 4s infinite;
 	font-size: 60px;
 }
-
-#starter {
-    background: #FFFFFF00;
-    color: #ffffff;
-    font-size: 15px;
-
-}
-
-#tu_me_vois_pas {
-	color: transparent;
-	background-color: transparent;
-	border: none;
-	outline: none ;
-}
 	
 canvas {
 	border: 1px solid white;

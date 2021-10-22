@@ -5,22 +5,23 @@ var grid = 16;
 var count = 0;
   
 var snake = {
-  x: 160,
-  y: 160,
+	x: 160,
+	y: 160,
   
   // snake velocity. moves one grid length every frame in either the x or y direction
-  dx: grid,
-  dy: 0,
+	dx: grid,
+	dy: 0,
   
   // keep track of all grids the snake body occupies
-  cells: [],
+	cells: [],
   
   // length of the snake. grows when eating an apple
-  maxCells: 4
+	maxCells: 4
 };
+
 var apple = {
-  x: 320,
-  y: 320
+	x: getRandomInt(0, 25) * grid,
+	y: getRandomInt(0, 25) * grid
 };
 
 // suivre le score du joueur
