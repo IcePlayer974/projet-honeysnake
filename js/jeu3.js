@@ -1,5 +1,6 @@
-var canvas = document.getElementById('jeu');
-var context = canvas.getContext('2d');
+var canvas = document.getElementById("jeu");
+var context = canvas.getContext("2d");
+var jack = document.getElementById("jack");
 var score = 0;
 var grid = 16;
 var count = 0;
@@ -27,12 +28,12 @@ var apple = {
 // suivre le score du joueur
 function scoreJoueur() {
 	score++;
-	document.getElementById('scorehtml').innerHTML = score;
+	document.getElementById("scorehtml").innerHTML = score;
 }
 
 function resetScore() {
 	score = 0;
-	document.getElementById('scorehtml').innerHTML = score;
+	document.getElementById("scorehtml").innerHTML = score;
 }
 
 function gameover() {
@@ -56,7 +57,7 @@ function loop() {
   requestAnimationFrame(loop);
 
   // slow game loop to 15 fps instead of 60 (60/15 = 4)
-  if (++count < 1.5) {
+  if (++count < 7) {
     return;
   }
 
@@ -69,18 +70,26 @@ function loop() {
 
   // wrap snake position horizontally on edge of screen
   if (snake.x < 0) {
-    snake.x = canvas.width - grid;
+	resetScore();
+	gameover();
+	alerteGameover();
   }
   else if (snake.x >= canvas.width) {
-    snake.x = 0;
+    resetScore();
+	gameover();
+	alerteGameover();
   }
   
   // wrap snake position vertically on edge of screen
   if (snake.y < 0) {
-    snake.y = canvas.height - grid;
+    resetScore();
+	gameover();
+	alerteGameover();
   }
   else if (snake.y >= canvas.height) {
-    snake.y = 0;
+    resetScore();
+	gameover();
+	alerteGameover();
   }
 
   // keep track of where snake has been. front of the array is always the head
@@ -92,18 +101,18 @@ function loop() {
   }
 
   // draw apple
-  context.fillStyle = 'red';
-  context.fillRect(apple.x, apple.y, grid-1, grid-1);
+
+  context.drawImage(jack, apple.x, apple.y, grid - 1, (2 * grid) - 1);
 
   // draw snake one cell at a time
-  context.fillStyle = 'green';
+  context.fillStyle = "green";
   snake.cells.forEach(function(cell, index) {
     
     // drawing 1 px smaller than the grid creates a grid effect in the snake body so you can see how long it is
     context.fillRect(cell.x, cell.y, grid-1, grid-1);  
 
-    // snake ate apple
-    if (cell.x === apple.x && cell.y === apple.y) {
+    // snake sur jack
+	if ((cell.x === apple.x) && ((cell.y === apple.y) || (cell.y === apple.y + grid))) {
       snake.maxCells++;
 	  document.getElementById("bouteille").cloneNode(true).play();
 	  scoreJoueur();
@@ -135,7 +144,7 @@ function loop() {
 }
 
 // Ecoute des événements claviers (pour les flèches)
-document.addEventListener('keydown', function(e) {
+document.addEventListener("keydown", function(e) {
   
   /*
 	On fait en sorte que le navigateur ne scroll pas

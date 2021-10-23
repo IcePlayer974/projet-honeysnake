@@ -31,6 +31,19 @@ h1 {
 	animation: color-change 4s infinite;
 	font-size: 60px;
 }
+p {
+	color:#FAFAFA00;
+}
+
+div {
+	margin: 100px auto;
+	width:50%;
+	padding:15px;
+	border: none;
+	text-align:center;
+
+}
+
 
 .amateur {
 	box-shadow: 3px 4px 0px 0px #3dc21b;
@@ -39,6 +52,7 @@ h1 {
 	border-radius: 18px;
 	border: 1px solid #18ab29;
 	display: inline-block;
+	margin-left:3px;
 	cursor: pointer;
 	color: #ffffff;
 	font-family: Trebuchet MS;
@@ -54,7 +68,7 @@ h1 {
 }
 
 .amateur:active {
-	position: relative;
+	position: auto;
 	top: 1px;
 }
 
@@ -89,6 +103,7 @@ h1 {
 	border-radius:18px;
 	border:1px solid #d02718;
 	display:inline-block;
+	margin-left-side: 250px;
 	cursor:pointer;
 	color:#ffffff;
 	font-family:Trebuchet MS;
@@ -106,3 +121,28 @@ h1 {
 	position:relative;
 	top:1px;
 }
+
+.cache {
+	box-shadow: 3px 4px 0px 0px #FAFAFA00;
+	background:linear-gradient(to bottom, #FAFAFA00 5%, #FAFAFA00 100%);
+	background-color:#FAFAFA00;
+	border-radius:20px;
+	border:1px solid #FAFAFA00;
+	display:inline-block;
+	cursor:pointer;
+	color:#FAFAFA00;
+	font-family:Trebuchet MS;
+	font-size:17px;
+	padding:7px 25px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #FAFAFA00;
+}
+.cache:hover {
+	background:linear-gradient(to bottom, #FAFAFA00 5%, #FAFAFA00 100%);
+	background-color:#FAFAFA00;
+}
+.cache:active {
+	position:relative;
+	top:1px;
+}
+
