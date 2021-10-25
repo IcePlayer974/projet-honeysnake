@@ -30,14 +30,50 @@ h1 {
 	text-shadow: 0px 0px 4px white;
 	animation: color-change 4s infinite;
 	font-size: 60px;
-}
-p {
-	color:#FAFAFA00;
+	display:inline-block;
+
 }
 
-div {
+
+btacueil { /* div1 */ 
+	margin: 0 auto;
+	width:45%;
+	padding:15px;
+	border: none;
+	text-align:center;
+
+}
+
+btn1 { /* div2 */ 
 	margin: 100px auto;
-	width:50%;
+	width:25%;
+	padding:15px;
+	border: none;
+	text-align:center;
+
+}
+
+btn2 {	/* div3  */
+	margin: 100px auto;
+	width:25%;
+	padding:15px;
+	border: none;
+	text-align:center;
+
+}
+
+btn3 { /* div4  */
+	margin: 100px auto;
+	width:25%;
+	padding:15px;
+	border: none;
+	text-align:center;
+
+}
+
+btcache { /* div5 */ 
+	margin: 100px auto;
+	width:25%;
 	padding:15px;
 	border: none;
 	text-align:center;
