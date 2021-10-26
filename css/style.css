@@ -30,6 +30,18 @@ h1 {
 	text-shadow: 0px 0px 4px white;
 	animation: color-change 4s infinite;
 	font-size: 60px;
+	display:inline-block;
+
+}
+
+
+btacueil { /* div1 */ 
+	margin: 0 auto;
+	width:45%;
+	padding:15px;
+	border: none;
+	text-align:center;
+
 }
 
 h4 {

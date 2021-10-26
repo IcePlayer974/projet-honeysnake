@@ -35,47 +35,47 @@ h1 {
 }
 
 
-btacueil { /* div1 */ 
+#btacueil { /* div1 */ 
 	margin: 0 auto;
-	width:45%;
-	padding:15px;
-	border: none;
+	width:50%;
+	padding:none;
+	border: 3px solid black;
 	text-align:center;
 
 }
 
-btn1 { /* div2 */ 
-	margin: 100px auto;
+#btn1 { /* div2 */ 
+	margin: 25px auto;
 	width:25%;
 	padding:15px;
-	border: none;
+	border: 3px solid black;
 	text-align:center;
 
 }
 
-btn2 {	/* div3  */
-	margin: 100px auto;
-	width:25%;
+#btn2 {	/* div3  */
+	margin: 25px auto;
+	width:50%;
 	padding:15px;
-	border: none;
+	border: 3px solid black;
 	text-align:center;
 
 }
 
-btn3 { /* div4  */
-	margin: 100px auto;
-	width:25%;
+#btn3 { /* div4  */
+	margin: 25px auto;
+	width:50%;
 	padding:15px;
-	border: none;
+	border: 3px solid black;
 	text-align:center;
 
 }
 
-btcache { /* div5 */ 
-	margin: 100px auto;
-	width:25%;
+#btn4 { /* div5 */ 
+	margin: 25px auto;
+	width:50%;
 	padding:15px;
-	border: none;
+	border: 3px solid black;
 	text-align:center;
 
 }
