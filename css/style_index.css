@@ -39,7 +39,7 @@ h1 {
 	margin: 0 auto;
 	width:50%;
 	padding:none;
-	border: none;
+	border: 3px solid black;
 	text-align:center;
 
 }
@@ -72,8 +72,8 @@ h1 {
 }
 
 #btn4 { /* div5 */ 
-	margin: 25px auto;
-	width:50%;
+	margin: 5% auto;
+	width:25%;
 	padding:15px;
 	border: 3px solid black;
 	text-align:center;
