@@ -1,0 +1,76 @@
+@charset "utf-8";
+
+@font-face {
+	font-family: "Libre Franklin";
+	src: url("../fonts/LibreFranklin-SemiBold.ttf") format("truetype");
+}
+
+@keyframes color-change {
+	0% { color: #ff0000; }
+	17% { color: #ff4000; }
+	33% { color: #ff8000; }
+	50% { color: #ffbf00; }
+	66% { color: #ffff00; }
+	83% { color: #bfff00; }
+	100% { color: #ff0000; }
+}
+
+html {
+	margin: 0;
+	padding: 0;
+	background: url(../img/fond.webp);
+	background-size: cover;
+	font-family: "Libre Franklin";
+}
+
+h1 {
+	-webkit-text-stroke: 1.5px black;
+	color: white;
+	text-align: center;
+	text-shadow: 0px 0px 4px white;
+	animation: color-change 4s infinite;
+	font-size: 60px;
+	display:inline-block;
+
+}
+
+
+#btacueil { /* div1 */ 
+	margin: 0 auto;
+	width:50%;
+	padding:none;
+	border: none;
+	text-align:center;
+
+}
+
+h4 {
+	margin: 15px;
+	color: black;
+	text-align: center;
+	font-size: 60px;
+}
+
+	
+canvas {
+	border: 1px solid white;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+} 
+
+.scoreentier {
+	text-align: center;
+	color: #ffffff;
+	font-size: 30px;
+}
+
+.memeligne {
+	display: inline-block;
+}
+
+#scorehtml {
+	font-size: 40px;
+}
