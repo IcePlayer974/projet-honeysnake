@@ -44,6 +44,20 @@ h1 {
 
 }
 
+h2 {
+	margin: 15px;
+	color: black;
+	text-align: center;
+	font-size: 60px;
+}
+
+h3 {
+	margin: 15px;
+	color: black;
+	text-align: center;
+	font-size: 60px;
+}
+
 h4 {
 	margin: 15px;
 	color: black;
@@ -51,26 +65,11 @@ h4 {
 	font-size: 60px;
 }
 
-	
-canvas {
-	border: 1px solid white;
-    padding-left: 0;
-    padding-right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-} 
-
-.scoreentier {
+h5 {
+	margin: 15px;
+	color: black;
 	text-align: center;
-	color: #ffffff;
-	font-size: 30px;
+	font-size: 60px;
 }
 
-.memeligne {
-	display: inline-block;
-}
-
-#scorehtml {
-	font-size: 40px;
-}
+	
