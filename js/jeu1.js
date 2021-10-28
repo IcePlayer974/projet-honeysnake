@@ -2,6 +2,7 @@ var canvas = document.getElementById("jeu");
 var context = canvas.getContext("2d");
 var jack = document.getElementById("jack");
 var score = 0;
+var highscore = 0;
 var grid = 16;
 var count = 0;
   
@@ -37,13 +38,12 @@ function resetScore() {
 }
 
 function gameover() {
+	if (score > highscore) {
+		highscore = score;
+		localStorage.setItem("highscore", highscore);
+	}
 	document.getElementById("gameover").cloneNode(true).play();
-	alerteGameover();
-}
-
-function alerteGameover() {
-	alert("GAME OVER\nVous avez tout votre temps pour battre le record du monde !");
-	document.location.reload();
+	alert("GAME OVER\n\nVous avez tout votre temps pour battre le record du monde !");
 }
 
 // get random whole numbers in a specific range
@@ -125,8 +125,8 @@ function loop() {
         snake.maxCells = 4;
         snake.dx = grid;
         snake.dy = 0;
-		resetScore();
 		gameover();
+		resetScore();
 
         apple.x = getRandomInt(0, 25) * grid;
         apple.y = getRandomInt(0, 25) * grid;
