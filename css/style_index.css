@@ -21,6 +21,7 @@ html {
 	background: url(../img/fond.webp);
 	background-size: cover;
 	font-family: "Libre Franklin";
+	overflow: hidden;
 }
 
 h1 {
