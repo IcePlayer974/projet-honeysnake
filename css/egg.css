@@ -21,6 +21,7 @@ html {
 	background: url(../img/fond.webp);
 	background-size: cover;
 	font-family: "Libre Franklin";
+	overflow: hidden;
 }
 
 h1 {
@@ -46,21 +47,21 @@ h1 {
 
 h2 {
 	margin: 15px;
-	color: black;
+	color: #f8f8ff;
 	text-align: center;
 	font-size: 60px;
 }
 
 h3 {
 	margin: 15px;
-	color: black;
+	color: #f8f8ff;
 	text-align: center;
 	font-size: 60px;
 }
 
 h4 {
 	margin: 15px;
-	color: black;
+	color: #f8f8ff;
 	text-align: center;
 	font-size: 60px;
 }
