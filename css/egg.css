@@ -65,10 +65,22 @@ h4 {
 	font-size: 60px;
 }
 
+@keyframes colo-easter {
+	0% { color: #126dff; }
+	17% { color: #ff00ff; }
+	33% { color: #7fff00; }
+	50% { color: #FF00FF; }
+	66% { color: #adff2f; }
+	83% { color: #ff2d49; }
+	100% { color: #126dff; }
+}
+
 h5 {
-	margin: 15px;
-	color: black;
+	-webkit-text-stroke: 1.5px black;
+	/* color: white; */
 	text-align: center;
+	text-shadow: 0px 0px 4px white;
+	animation: colo-easter 2s infinite;
 	font-size: 60px;
 }
 
