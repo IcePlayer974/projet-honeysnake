@@ -26,6 +26,8 @@ var apple = {
 	y: getRandomInt(0, 25) * grid
 };
 
+window.onload = updateHighscore;
+
 // suivre le score du joueur
 function scoreJoueur() {
 	score++;
@@ -40,6 +42,10 @@ function resetScore() {
 function gameover() {
 	document.getElementById("gameover").cloneNode(true).play();
 	alert("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀GAME OVER\n\nVous avez tout votre temps pour battre le record du monde !");
+}
+
+function updateHighscore() {
+	document.getElementById("hautscore").innerHTML = localStorage.getItem("highscore");
 }
 
 // get random whole numbers in a specific range
@@ -57,7 +63,6 @@ function loop() {
 		highscore = score;
 		localStorage.setItem("highscore", highscore);
 	}
-  document.getElementById("hautscore").innerHTML = localStorage.getItem("highscore");
 
   // slow game loop to 15 fps instead of 60 (60/15 = 4)
   if (++count < 8) {
@@ -130,6 +135,7 @@ function loop() {
         snake.dy = 0;
 		gameover();
 		resetScore();
+		updateHighscore();
 
         apple.x = getRandomInt(0, 25) * grid;
         apple.y = getRandomInt(0, 25) * grid;
