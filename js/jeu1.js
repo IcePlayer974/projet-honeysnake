@@ -38,12 +38,8 @@ function resetScore() {
 }
 
 function gameover() {
-	if (score > highscore) {
-		highscore = score;
-		localStorage.setItem("highscore", highscore);
-	}
 	document.getElementById("gameover").cloneNode(true).play();
-	alert("GAME OVER\n\nVous avez tout votre temps pour battre le record du monde !");
+	alert("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀GAME OVER\n\nVous avez tout votre temps pour battre le record du monde !");
 }
 
 // get random whole numbers in a specific range
@@ -55,6 +51,13 @@ function getRandomInt(min, max) {
 // game loop
 function loop() {
   requestAnimationFrame(loop);
+  
+  // afficher le meilleur score stocké localement sur la page HTML
+  if (score > highscore) {
+		highscore = score;
+		localStorage.setItem("highscore", highscore);
+	}
+  document.getElementById("hautscore").innerHTML = localStorage.getItem("highscore");
 
   // slow game loop to 15 fps instead of 60 (60/15 = 4)
   if (++count < 8) {
