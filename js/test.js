@@ -5,7 +5,6 @@ var score = 0;
 var highscore = 0;
 var grid = 16;
 var count = 0;
-var over = document.getElementById("menuover");
   
 var snake = {
 	x: 160,
@@ -41,9 +40,9 @@ function resetScore() {
 }
 
 function gameover() {
-	document.getElementById("gameover").cloneNode(true).play();
-	/* alert("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀GAME OVER\n\nVous avez tout votre temps pour battre le record du monde !"); */
-	 
+	document.getElementById("gameover").play();
+	setTimeout(2000);
+	alert("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀GAME OVER\n\nVous avez tout votre temps pour battre le record du monde !");
 }
 
 function updateHighscore() {
