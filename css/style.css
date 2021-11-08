@@ -46,6 +46,8 @@ h1 {
 }
 	
 canvas {
+	background-color: #000000;
+	margin: 0 auto;
 	border: 1px solid white;
     padding-left: 0;
     padding-right: 0;
