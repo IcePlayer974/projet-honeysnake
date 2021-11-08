@@ -32,15 +32,7 @@ var apple = {
 var pear = {
 	x: aleatoire(0, 25) * grille,
 	y: aleatoire(1, 24) * grille // 1 24 au lieu de 0 25 pour éviter que la moitié de la bouteille soit hors du canvas
-}
-
-while (pear.x === apple.x) {
-	pear.x = aleatoire(0, 25) * grille;
-}
-
-while (pear.y === apple.y) {
-	pear.y = aleatoire(1, 24) * grille;
-}
+};
 
 /*
 on affiche le meilleur score stocké dans le navigateur au chargement de la page
@@ -52,6 +44,11 @@ window.onload = updateHighscore;
 // suivre le score du joueur
 function scoreJoueur() {
 	score++;
+	document.getElementById("scorehtml").innerHTML = score;
+}
+
+function scoreJoueurPolia() {
+	score += 5;
 	document.getElementById("scorehtml").innerHTML = score;
 }
 
@@ -156,6 +153,31 @@ function loop() {
 			// canvas fait 400x400 soit grille de 25x25 
 			apple.x = aleatoire(0, 25) * grille;
 			apple.y = aleatoire(1, 24) * grille;
+			
+			while ((apple.x === snake.x) || (apple.x === cell.x)) {
+				apple.x = aleatoire(0, 25) * grille;
+			}
+			while ((apple.y === snake.y) || ((apple.y + grille) === cell.y)) {
+				apple.y = aleatoire(1, 24) * grille;
+			}
+		}
+		
+		// snake sur polia
+		if ((cell.x === pear.x) && ((cell.y === pear.y) || (cell.y === pear.y + grille))) {
+			snake.maxCells++;
+			document.getElementById("bouteille").cloneNode(true).play(); // A MODIFIER - AUTRE SON
+			scoreJoueurPolia();
+
+			// canvas fait 400x400 soit grille de 25x25 
+			pear.x = aleatoire(0, 25) * grille;
+			pear.y = aleatoire(1, 24) * grille;
+			
+			while ((pear.x === apple.x) || (pear.x === cell.x)) {
+				pear.x = aleatoire(0, 25) * grille;
+			}
+			while ((pear.y === apple.y) || ((pear.y + grille) === cell.y)) {
+				pear.y = aleatoire(1, 24) * grille;
+			}
 		}
 
 		// vérifier la collision avec la queue du serpent

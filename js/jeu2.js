@@ -137,6 +137,13 @@ function loop() {
 			// canvas fait 400x400 soit grille de 25x25 
 			apple.x = aleatoire(0, 25) * grille;
 			apple.y = aleatoire(1, 24) * grille;
+			
+			while ((apple.x === snake.x) || (apple.x === cell.x)) {
+				apple.x = aleatoire(0, 25) * grille;
+			}
+			while ((apple.y === snake.y) || ((apple.y + grille) === cell.y)) {
+				apple.y = aleatoire(1, 24) * grille;
+			}
 		}
 
 		// vérifier la collision avec la queue du serpent
