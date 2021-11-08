@@ -49,8 +49,11 @@ function resetScore() {
 */
 
 function gameover() {
+	/*
 	document.getElementById("gameover").cloneNode(true).play();
 	alert("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀GAME OVER\n\nVous avez tout votre temps pour battre le record du monde !");
+	*/
+	window.location.replace("over.html");
 }
 
 // fonction pour mettre à jour le highscore sur le HTML
@@ -138,11 +141,11 @@ function loop() {
 
 		// vérifier la collision avec la queue du serpent
 		for (var i = index + 1; i < snake.cells.length; i++) {
-      
-			/* anciennement condition pour relancer la game
-				inutile depuis la page gameover
 		
 			if (cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
+				/* anciennement condition pour relancer la game
+				inutile depuis la page gameover
+				
 				snake.x = 160;
 				snake.y = 160;
 				snake.cells = [];
@@ -155,8 +158,10 @@ function loop() {
 
 				apple.x = aleatoire(0, 25) * grille;
 				apple.y = aleatoire(1, 24) * grille;
+				*/
+				gameover();
 			}
-			*/
+			
 		}
 	});
 }
