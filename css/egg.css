@@ -91,6 +91,7 @@ h5 {
 	color: #f8f8ff;
 	text-align: center;
 	font-size: 60px;
+	text-shadow: 2px 0 0 #000000, -2px 0 0 #000000, 0 2px 0 #000000, 0 -2px 0 #000000, 1px 1px #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000;
 }
 
 #afftext {
@@ -99,12 +100,7 @@ h5 {
 	color: #f8f8ff;
 	text-align: center;
 	font-size: 60px;
+	color:#f8f8ff;
+	text-shadow: 2px 0 0 #000000, -2px 0 0 #000000, 0 2px 0 #000000, 0 -2px 0 #000000, 1px 1px #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000;	
 }
 
-#replayed {
-	
-	margin: 15px;
-	color: #f8f8ff;
-	text-align: center;
-	font-size: 60px;
-}
