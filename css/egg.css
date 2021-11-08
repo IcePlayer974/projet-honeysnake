@@ -85,4 +85,26 @@ h5 {
 	font-size: 60px;
 }
 
+#affgo {
 	
+	margin: 15px;
+	color: #f8f8ff;
+	text-align: center;
+	font-size: 60px;
+}
+
+#afftext {
+	
+	margin: 15px;
+	color: #f8f8ff;
+	text-align: center;
+	font-size: 60px;
+}
+
+#replayed {
+	
+	margin: 15px;
+	color: #f8f8ff;
+	text-align: center;
+	font-size: 60px;
+}
