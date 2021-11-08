@@ -6,6 +6,7 @@ var score = 0;
 var highscore = 0;
 var grille = 16;
 var count = 0;
+var vitesse = 6;
   
 var snake = {
 	// on centre à peu près le serpent au début du jeu
@@ -94,7 +95,7 @@ function loop() {
 	}
 
 	// on ralentit la boucle à 15 fps au lieu de 60 fps (rafraîchissement écran PC) -> (60/15 = 4)
-	if (++count < 6) {
+	if (++count < vitesse) {
 		return;
 	}
 
@@ -133,7 +134,7 @@ function loop() {
 	context.drawImage(jack, apple.x, apple.y, grille - 1, (2 * grille) - 1);
 	
 	// dessiner polia quand score modulo 10 = 0
-	if (((score % 10) === 0) && (score != 0)) { 	
+	if (((score % 10) === 0) && (score != 0)) {
 		context.drawImage(polia, pear.x, pear.y, grille - 1, (2 * grille) - 1);
 	}
 
@@ -160,23 +161,29 @@ function loop() {
 			while ((apple.y === snake.y) || ((apple.y + grille) === cell.y)) {
 				apple.y = aleatoire(1, 24) * grille;
 			}
+			
+			vitesse = 6;
 		}
 		
 		// snake sur polia
-		if ((cell.x === pear.x) && ((cell.y === pear.y) || (cell.y === pear.y + grille))) {
-			snake.maxCells++;
-			document.getElementById("bouteille").cloneNode(true).play(); // A MODIFIER - AUTRE SON
-			scoreJoueurPolia();
+		if (((score % 10) === 0) && (score != 0)) {
+			if ((cell.x === pear.x) && ((cell.y === pear.y) || (cell.y === pear.y + grille))) {
+				snake.maxCells++;
+				document.getElementById("bouteille_polia").cloneNode(true).play();
+				scoreJoueurPolia();
 
-			// canvas fait 400x400 soit grille de 25x25 
-			pear.x = aleatoire(0, 25) * grille;
-			pear.y = aleatoire(1, 24) * grille;
-			
-			while ((pear.x === apple.x) || (pear.x === cell.x)) {
+				// canvas fait 400x400 soit grille de 25x25 
 				pear.x = aleatoire(0, 25) * grille;
-			}
-			while ((pear.y === apple.y) || ((pear.y + grille) === cell.y)) {
 				pear.y = aleatoire(1, 24) * grille;
+			
+				while ((pear.x === apple.x) || (pear.x === cell.x)) {
+					pear.x = aleatoire(0, 25) * grille;
+				}
+				while ((pear.y === apple.y) || ((pear.y + grille) === cell.y)) {
+					pear.y = aleatoire(1, 24) * grille;
+				}
+			
+				vitesse = 2.5;
 			}
 		}
 
