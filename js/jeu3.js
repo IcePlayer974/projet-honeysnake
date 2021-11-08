@@ -94,7 +94,7 @@ function loop() {
 		localStorage.setItem("highscore3", highscore);
 	}
 
-	// on ralentit la boucle à 15 fps au lieu de 60 fps (rafraîchissement écran PC) -> (60/15 = 4)
+	// on ralentit la boucle à SOIT 10 fps SOIT 24 fps au lieu de 60 fps (rafraîchissement écran PC) -> (60/10 = 6 ; 60/24 = 2.5)
 	if (++count < vitesse) {
 		return;
 	}
@@ -106,7 +106,7 @@ function loop() {
 	snake.x += snake.dx;
 	snake.y += snake.dy;
 
-	// faire en sorte que le snake puisse passer les murs horizontaux de l'autre côté
+	// faire en sorte que le snake ne puisse pas passer les murs horizontaux -> game over
 	if (snake.x < 0) {
 		gameover();
 	}
@@ -114,7 +114,7 @@ function loop() {
 		gameover();
 	}
   
-	// faire en sorte que le snake puisse passer les murs verticaux de l'autre côté
+	// faire en sorte que le snake ne puisse pas passer les murs verticaux -> game over
 	if (snake.y < 0) {
 		gameover();
 	}
@@ -122,10 +122,9 @@ function loop() {
 		gameover();
 	}
 
-	// on remplit le tableau avec le corps du snake
 	snake.cells.unshift({x: snake.x, y: snake.y});
 
-	// on retire certaines parties du tableau quand la queue avance
+	// allonge de la queue du snake
 	if (snake.cells.length > snake.maxCells) {
 		snake.cells.pop();
 	}
@@ -134,7 +133,7 @@ function loop() {
 	context.drawImage(jack, apple.x, apple.y, grille - 1, (2 * grille) - 1);
 	
 	// dessiner polia quand score modulo 10 = 0
-	if (((score % 10) === 0) && (score != 0)) {
+	if (((score % 10) === 0) && (score !== 0)) {
 		context.drawImage(polia, pear.x, pear.y, grille - 1, (2 * grille) - 1);
 	}
 
@@ -166,7 +165,7 @@ function loop() {
 		}
 		
 		// snake sur polia
-		if (((score % 10) === 0) && (score != 0)) {
+		if (((score % 10) === 0) && (score !== 0)) {
 			if ((cell.x === pear.x) && ((cell.y === pear.y) || (cell.y === pear.y + grille))) {
 				snake.maxCells++;
 				document.getElementById("bouteille_polia").cloneNode(true).play();

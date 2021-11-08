@@ -110,10 +110,9 @@ function loop() {
 		snake.y = 0;
 	}
 
-	// on remplit le tableau avec le corps du snake
 	snake.cells.unshift({x: snake.x, y: snake.y});
 
-	// on retire certaines parties du tableau quand la queue avance
+	// allonge de la queue du snake
 	if (snake.cells.length > snake.maxCells) {
 		snake.cells.pop();
 	}

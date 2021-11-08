@@ -1,29 +1,28 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="description" content="Le Snake le moins populaire du monde">
-<meta name="keywords" content="Snake, SIN, ESIEE">
-<meta name="author" content="Arthur Blanchot, Julien Delplanque">
-<!-- css -->
-<link type="text/css" rel="stylesheet" href="css/egg.css">
-<title>🍯 HoneySnake 🐍</title>
-</head>
-<body>
-<!-- Chrome a désactivé le autoplay audio, c'est censé marcher. Trouver une solution de contournement ?
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" content="Le Snake le moins populaire du monde">
+		<meta name="keywords" content="Snake, SIN, ESIEE">
+		<meta name="author" content="Arthur Blanchot, Julien Delplanque">
+		<!-- css -->
+		<link type="text/css" rel="stylesheet" href="css/egg.css">
+		<title>🍯 HoneySnake 🐍</title>
+	</head>
+	<body>
+		<!-- Chrome a désactivé le autoplay audio, ça marche sur les autres navigateurs. Contournement pour cette exception ? -->
+		
+		<audio autoplay src="sounds/gameover.opus" type="audio/ogg; codecs=opus" preload="auto"></audio>
 
-<audio autoplay src="sounds/gameover.opus" type="audio/ogg; codecs=opus" preload="auto"></audio> -->
-
-<!-- titre du jeu, à voir pour mettre une police d'écriture ? -->
-<div id="btacueil" class="acueil">
-	<a href ="index.html" class="aceuil"><h1>HONEYSNAKE</h1></a>
-</div>
-<div id="g.o" class="endgame">
-	<h3 id="affgo" >GAME OVER</h3>
-	<h4 id="afftext" >Vous avez tout votre temps pour battre le record du monde</h4>
-</div>
-<div id="btacueil" class="acueil">
-	<a href ="index.html" class="aceuil"><h1>Rejouer 🔄</h1></a>
-</div>
-</body>
+		<div id="btacueil" class="acueil">
+			<a href ="index.html" class="aceuil"><h1>HONEYSNAKE</h1></a>
+		</div>
+		<div id="g.o" class="endgame">
+			<h3 id="affgo" >GAME OVER</h3>
+			<h4 id="afftext" >Vous avez tout votre temps pour battre le record du monde 😉</h4>
+		</div>
+		<div id="btacueil" class="acueil">
+			<a href ="index.html" class="aceuil"><h1>Rejouer 🔄</h1></a>
+		</div>
+	</body>
 </html>

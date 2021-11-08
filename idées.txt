@@ -1,4 +1,4 @@
-Snake// (plan de secours) ++++++++++++++
+Snake// ++++++++++++++
 Jeu de bourse//--
 Pacman*
 Flappy*
