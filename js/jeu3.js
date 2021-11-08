@@ -1,29 +1,53 @@
 var canvas = document.getElementById("jeu");
 var context = canvas.getContext("2d");
 var jack = document.getElementById("jack");
+var polia = document.getElementById("polia");
 var score = 0;
-var grid = 16;
+var highscore = 0;
+var grille = 16;
 var count = 0;
   
 var snake = {
+	// on centre à peu près le serpent au début du jeu
 	x: 160,
 	y: 160,
   
-  // snake velocity. moves one grid length every frame in either the x or y direction
-	dx: grid,
+	// déplacement du serpent
+	dx: grille,
 	dy: 0,
   
-  // keep track of all grids the snake body occupies
+	// tableau pour chaque case occupée par le corps du serpent
 	cells: [],
   
-  // length of the snake. grows when eating an apple
+	// la taille du serpent au début, ça doit augmenter à chaque point
 	maxCells: 4
 };
 
+// on fait apparaître la bouteille aléatoirement dans le canvas au chargement de la page
 var apple = {
-	x: getRandomInt(0, 25) * grid,
-	y: getRandomInt(0, 25) * grid
+	x: aleatoire(0, 25) * grille,
+	y: aleatoire(1, 24) * grille // 1 24 au lieu de 0 25 pour éviter que la moitié de la bouteille soit hors du canvas
 };
+
+var pear = {
+	x: aleatoire(0, 25) * grille,
+	y: aleatoire(1, 24) * grille // 1 24 au lieu de 0 25 pour éviter que la moitié de la bouteille soit hors du canvas
+}
+
+while (pear.x === apple.x) {
+	pear.x = aleatoire(0, 25) * grille;
+}
+
+while (pear.y === apple.y) {
+	pear.y = aleatoire(1, 24) * grille;
+}
+
+/*
+on affiche le meilleur score stocké dans le navigateur au chargement de la page
+!! comme la page sera reload à chaque gameover, on peut faire en sorte que
+la fonction soit exécuté uniquement au chargement de la page !!
+*/
+window.onload = updateHighscore;
 
 // suivre le score du joueur
 function scoreJoueur() {
@@ -31,151 +55,169 @@ function scoreJoueur() {
 	document.getElementById("scorehtml").innerHTML = score;
 }
 
+/* NORMALEMENT INUTILE après modif gameover
 function resetScore() {
 	score = 0;
 	document.getElementById("scorehtml").innerHTML = score;
 }
+*/
 
 function gameover() {
+	/*
 	document.getElementById("gameover").cloneNode(true).play();
-	alerteGameover();
+	alert("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀GAME OVER\n\nVous avez tout votre temps pour battre le record du monde !");
+	*/
+	window.location.replace("over.html");
 }
 
-function alerteGameover() {
-	alert("GAME OVER\nVous avez tout votre temps pour battre le record du monde !");
-	document.location.reload();
+// fonction pour mettre à jour le highscore sur le HTML
+function updateHighscore() {
+	document.getElementById("hautscore").innerHTML = localStorage.getItem("highscore3");
 }
 
-// get random whole numbers in a specific range
-// @see https://stackoverflow.com/a/1527820/2124254
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
+/*
+nombre aléatoire dans un intervalle spécifié
+https://stackoverflow.com/a/1527820/2124254
+*/
+function aleatoire(min, max) {
+	return Math.floor(Math.random() * (max - min)) + min;
 }
 
-// game loop
+// boucle pour faire tourner le jeu
 function loop() {
-  requestAnimationFrame(loop);
-
-  // slow game loop to 15 fps instead of 60 (60/15 = 4)
-  if (++count < 7) {
-    return;
-  }
-
-  count = 0;
-  context.clearRect(0,0,canvas.width,canvas.height);
-
-  // move snake by it's velocity
-  snake.x += snake.dx;
-  snake.y += snake.dy;
-
-  // wrap snake position horizontally on edge of screen
-  if (snake.x < 0) {
-	resetScore();
-	gameover();
-	alerteGameover();
-  }
-  else if (snake.x >= canvas.width) {
-    resetScore();
-	gameover();
-	alerteGameover();
-  }
+	requestAnimationFrame(loop);
   
-  // wrap snake position vertically on edge of screen
-  if (snake.y < 0) {
-    resetScore();
-	gameover();
-	alerteGameover();
-  }
-  else if (snake.y >= canvas.height) {
-    resetScore();
-	gameover();
-	alerteGameover();
-  }
+	/*
+	Afficher le meilleur score stocké dans le navigateur sur la page HTML
+	si et seulement si le score fait est supérieur au précédent highscore
+	*/
+	if (score > highscore) {
+		highscore = score;
+		localStorage.setItem("highscore3", highscore);
+	}
 
-  // keep track of where snake has been. front of the array is always the head
-  snake.cells.unshift({x: snake.x, y: snake.y});
+	// on ralentit la boucle à 15 fps au lieu de 60 fps (rafraîchissement écran PC) -> (60/15 = 4)
+	if (++count < 6) {
+		return;
+	}
 
-  // remove cells as we move away from them
-  if (snake.cells.length > snake.maxCells) {
-    snake.cells.pop();
-  }
+	count = 0;
+	context.clearRect(0, 0, canvas.width, canvas.height);
 
-  // draw apple
+	// on déplace le snake
+	snake.x += snake.dx;
+	snake.y += snake.dy;
 
-  context.drawImage(jack, apple.x, apple.y, grid - 1, (2 * grid) - 1);
-
-  // draw snake one cell at a time
-  context.fillStyle = "green";
-  snake.cells.forEach(function(cell, index) {
-    
-    // drawing 1 px smaller than the grid creates a grid effect in the snake body so you can see how long it is
-    context.fillRect(cell.x, cell.y, grid-1, grid-1);  
-
-    // snake sur jack
-	if ((cell.x === apple.x) && ((cell.y === apple.y) || (cell.y === apple.y + grid))) {
-      snake.maxCells++;
-	  document.getElementById("bouteille").cloneNode(true).play();
-	  scoreJoueur();
-
-      // canvas is 400x400 which is 25x25 grids 
-      apple.x = getRandomInt(0, 25) * grid;
-      apple.y = getRandomInt(0, 25) * grid;
-    }
-
-    // check collision with all cells after this one (modified bubble sort)
-    for (var i = index + 1; i < snake.cells.length; i++) {
-      
-      // snake occupies same space as a body part. reset game
-      if (cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
-        snake.x = 160;
-        snake.y = 160;
-        snake.cells = [];
-        snake.maxCells = 4;
-        snake.dx = grid;
-        snake.dy = 0;
-		resetScore();
+	// faire en sorte que le snake puisse passer les murs horizontaux de l'autre côté
+	if (snake.x < 0) {
 		gameover();
+	}
+	else if (snake.x >= canvas.width) {
+		gameover();
+	}
+  
+	// faire en sorte que le snake puisse passer les murs verticaux de l'autre côté
+	if (snake.y < 0) {
+		gameover();
+	}
+	else if (snake.y >= canvas.height) {
+		gameover();
+	}
 
-        apple.x = getRandomInt(0, 25) * grid;
-        apple.y = getRandomInt(0, 25) * grid;
-      }
-    }
-  });
+	// on remplit le tableau avec le corps du snake
+	snake.cells.unshift({x: snake.x, y: snake.y});
+
+	// on retire certaines parties du tableau quand la queue avance
+	if (snake.cells.length > snake.maxCells) {
+		snake.cells.pop();
+	}
+
+	// dessiner la bouteille dans le canvas
+	context.drawImage(jack, apple.x, apple.y, grille - 1, (2 * grille) - 1);
+	
+	// dessiner polia quand score modulo 10 = 0
+	if (((score % 10) === 0) && (score != 0)) { 	
+		context.drawImage(polia, pear.x, pear.y, grille - 1, (2 * grille) - 1);
+	}
+
+	// dessiner le snake un bout à la fois
+	context.fillStyle = "green";
+	snake.cells.forEach(function(cell, index) {
+
+		// le dessiner 1 pixel en moins de côté permet de mieux le visualiser, on laisse un creux
+		context.fillRect(cell.x, cell.y, grille - 1, grille - 1);
+
+		// snake sur jack
+		if ((cell.x === apple.x) && ((cell.y === apple.y) || (cell.y === apple.y + grille))) {
+			snake.maxCells++;
+			document.getElementById("bouteille").cloneNode(true).play();
+			scoreJoueur();
+
+			// canvas fait 400x400 soit grille de 25x25 
+			apple.x = aleatoire(0, 25) * grille;
+			apple.y = aleatoire(1, 24) * grille;
+		}
+
+		// vérifier la collision avec la queue du serpent
+		for (var i = index + 1; i < snake.cells.length; i++) {
+		
+			if (cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
+				/* anciennement condition pour relancer la game
+				inutile depuis la page gameover
+				
+				snake.x = 160;
+				snake.y = 160;
+				snake.cells = [];
+				snake.maxCells = 4;
+				snake.dx = grille;
+				snake.dy = 0;
+				gameover();
+				resetScore();
+				updateHighscore();
+
+				apple.x = aleatoire(0, 25) * grille;
+				apple.y = aleatoire(1, 24) * grille;
+				*/
+				gameover();
+			}
+			
+		}
+	});
 }
 
-// Ecoute des événements claviers (pour les flèches)
+// écoute des événements claviers (pour les flèches)
 document.addEventListener("keydown", function(e) {
   
-  /*
-	On fait en sorte que le navigateur ne scroll pas
+	/*
+	on fait en sorte que le navigateur ne scroll pas
 	la page quand on utilise les touches haut et bas.
-	Jouer en ayant une page qui scroll toute seule,
-	c'est pas fun.
-  */
-  e.preventDefault();
+	jouer en ayant une page qui scroll toute seule,
+	c'est pas fun
+	*/
+	e.preventDefault();
   
-  // Eviter que le serpent puisse faire demi-tour sur lui-même
-  // Flèche gauche
-  if (e.which === 37 && snake.dx === 0) {
-    snake.dx = -grid;
-    snake.dy = 0;
-  }
-  // Flèche haut
-  else if (e.which === 38 && snake.dy === 0) {
-    snake.dy = -grid;
-    snake.dx = 0;
-  }
-  // Flèche droite
-  else if (e.which === 39 && snake.dx === 0) {
-    snake.dx = grid;
-    snake.dy = 0;
-  }
-  // Flèche bas
-  else if (e.which === 40 && snake.dy === 0) {
-    snake.dy = grid;
-    snake.dx = 0;
-  }
+	// éviter que le serpent puisse faire demi-tour sur lui-même
+	// Flèche gauche
+	if (e.which === 37 && snake.dx === 0) {
+		snake.dx = -grille;
+		snake.dy = 0;
+	}
+	// Flèche haut
+	else if (e.which === 38 && snake.dy === 0) {
+		snake.dy = -grille;
+		snake.dx = 0;
+	}
+	// Flèche droite
+	else if (e.which === 39 && snake.dx === 0) {
+		snake.dx = grille;
+		snake.dy = 0;
+	}
+	// Flèche bas
+	else if (e.which === 40 && snake.dy === 0) {
+		snake.dy = grille;
+		snake.dx = 0;
+	}
 });
 
-// Démarrage du jeu
+// lancement du jeu
 requestAnimationFrame(loop);
