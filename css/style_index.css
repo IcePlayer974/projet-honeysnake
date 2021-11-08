@@ -32,7 +32,6 @@ h1 {
 	animation: color-change 4s infinite;
 	font-size: 60px;
 	display:inline-block;
-
 }
 
 
@@ -83,7 +82,8 @@ h1 {
 
 .rules {
 	color:#f8f8ff;
-
+	text-shadow: 2px 0 0 #000000, -2px 0 0 #000000, 0 2px 0 #000000, 0 -2px 0 #000000, 1px 1px #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000;
+	font-size: 20px;
 }
 
 
@@ -101,7 +101,7 @@ h1 {
 	font-size: 17px;
 	padding: 7px 25px;
 	text-decoration: none;
-	text-shadow: 0px 1px 0px #2f6627;
+	text-shadow: 0px 1px 0px #000000;
 }
 
 .amateur:hover {
@@ -127,7 +127,7 @@ h1 {
 	font-size:17px;
 	padding:7px 25px;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #ffee66;
+	text-shadow:0px 1px 0px #ffffff;
 }
 .occa:hover {
 	background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
@@ -153,7 +153,7 @@ h1 {
 	font-weight:bold;
 	padding:9px 27px;
 	text-decoration:none;
-	text-shadow:8px 8px 3px #810e05;
+	text-shadow: 4px 4px 3px #000000;
 }
 .ivrogne:hover {
 	background:linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
@@ -187,4 +187,3 @@ h1 {
 	position:relative;
 	top:1px;
 }
-
