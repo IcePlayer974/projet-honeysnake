@@ -7,6 +7,7 @@ var highscore = 0;
 var grille = 16;
 var count = 0;
 var vitesse = 6;
+var enter = true;
   
 var snake = {
 	// on centre à peu près le serpent au début du jeu
@@ -245,7 +246,9 @@ document.addEventListener("keydown", function(e) {
 		snake.dy = grille;
 		snake.dx = 0;
 	}
+	// Entrer pour démarrer
+	else if (e.code === "Enter" && enter) {
+		loop();
+		enter = false;
+	}
 });
-
-// lancement du jeu
-requestAnimationFrame(loop);
