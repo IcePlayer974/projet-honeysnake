@@ -161,7 +161,7 @@ function loop() {
 				apple.y = aleatoire(1, 24) * grille;
 			}
 			
-			vitesse = 6;
+			vitesse = 5;
 		}
 		
 		// snake sur polia
@@ -182,7 +182,7 @@ function loop() {
 					pear.y = aleatoire(1, 24) * grille;
 				}
 			
-				vitesse = 2.5;
+				vitesse = 2;
 			}
 		}
 
