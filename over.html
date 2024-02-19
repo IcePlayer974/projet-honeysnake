@@ -24,5 +24,14 @@
 		<div id="btacueil" class="acueil">
 			<a href ="index.html" class="aceuil"><h1>Rejouer 🔄</h1></a>
 		</div>
+		<script>
+			document.addEventListener('keydown', function(event) {
+    // Vérifier si la touche pressée est la touche "Entrée" (code 13)
+    if (event.key === 'Enter') {
+        // Rediriger vers la page souhaitée
+        window.location.href = "index.html";  // Remplacez 'https://www.example.com' par l'URL de la page souhaitée
+    }
+});
+		</script>
 	</body>
 </html>
